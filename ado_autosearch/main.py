@@ -16,3 +16,11 @@ headers = {
 url_repo = "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version=4.1"
 
 
+response = requests.get(url_repo, auth=auth, headers=headers)
+response.raise_for_status()
+
+repos = response.json()["value"]
+
+for repo in repos:
+    print(repo["name"], repo["id"])
+
