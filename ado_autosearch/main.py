@@ -21,14 +21,9 @@ response.raise_for_status()
 
 repos = response.json()["value"]
 
-for repo in repos:
-    print(repo["name"], repo["id"])response = requests.get(url, auth=auth, headers=headers)
-response.raise_for_status()
-
-repos = response.json()["value"]
 
 for repo in repos:
-    print(repo["name"], repo["id"])response = requests.get(url, auth=auth, headers=headers)
+    print(repo["name"], repo["id"])response = requests.get(url_repo, auth=auth, headers=headers)
 response.raise_for_status()
 
 repos = response.json()["value"]
