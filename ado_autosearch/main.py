@@ -38,6 +38,4 @@ repos_info = get_repos(repos)
 
 
 print(repos_info)
-
-
  
