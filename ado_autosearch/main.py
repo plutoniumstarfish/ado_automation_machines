@@ -34,7 +34,7 @@ def get_repos(repos):
     return result
 
 
-repos_id = get_repos(repos)["id"]
+repos_id = get_repos(repos)["0"]["id"]
 
 
 print(repos_id)
