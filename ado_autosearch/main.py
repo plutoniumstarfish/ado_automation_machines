@@ -20,33 +20,24 @@ response = requests.get(url_repo, auth=auth, headers=headers)
 response.raise_for_status()
 
 repos = response.json()["value"]
-def get_repos():
+
+
+def get_repos(repos):
+    result = []
+
     for repo in repos:
-        print(repo["name"], repo["id"])
-    
-        REPO_ID = repo["id"]
-        return REPO_ID
+        result.append({
+            "name": repo["name"],
+            "id": repo["id"]
+        })
 
-repo_id = get_repos()
+    return result
 
 
-def branch_exists(repo_id, branch_name):
-    url = f"https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repo_id}/refs"
-    params = {
-        "filter": f"heads/{branch_name}",
-        "api-version": "7.1-preview.1"
-    }
+repos_info = get_repos(repos)
 
-    r = requests.get(url, auth=auth, headers=headers, params=params)
-    r.raise_for_status()
 
-    return len(r.json()["value"]) > 0
+print(repos_info)
 
-exists = branch_exists(repo_id, "release/2026.1")
-
-if exists:
-  print("Branch exists")
-else:
-  print("Branch does NOT exist")
 
  
