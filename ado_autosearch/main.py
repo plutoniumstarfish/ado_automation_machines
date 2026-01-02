@@ -34,7 +34,7 @@ def get_repos(repos):
     return result
 
 
-repos_id = get_repos(repos)["0"]["id"]
+repos_id = get_repos(repos)[0]["id"]
 
 
 print(repos_id)
@@ -53,7 +53,7 @@ def branch_exists(repos_id, branch_name):
     return len(r.json()["value"]) > 0
 
 
-exists = branch_exists(repos_id, "release/11.0.0")
+exists = branch_exists(repos_id, "release/2026.1")
 
 if exists:
     print("Branch exists")
