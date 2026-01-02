@@ -1,5 +1,18 @@
 import requests
 from requests.auth import HTTPBasicAuth
+import argparse
+
+parser = argparse.ArgumentParser(description="Azure DevOps repo branch checker")
+parser.add_argument(
+    "branch",
+    help="Branch name (e.g. release/2026.1)"
+)
+
+args = parser.parse_args()
+
+branch_name = args.branch
+print(f"Branch passed: {branch_name}")
+
 
 organization = "genex2anchetamax"
 project = "ado_automation_machines"
