@@ -33,8 +33,6 @@ def get_repos(repos):
 
     return result
 
-repo_range = response.json()["count"]
-
 for rp in range(len(repos)):
     repos_id = get_repos(repos)[rp]["id"]
 
