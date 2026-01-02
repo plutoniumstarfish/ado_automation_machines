@@ -65,7 +65,7 @@ for rp in range(len(repos)):
         return len(r.json()["value"]) > 0
 
 
-    exists = branch_exists(repos_id, "release/2026.1")
+    exists = branch_exists(repos_id, branch_name)
 
     if exists:
         print("Branch exists")
