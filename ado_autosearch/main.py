@@ -48,8 +48,8 @@ def get_repos(repos):
 
 for rp in range(len(repos)):
     repos_id = get_repos(repos)[rp]["id"]
-
-    print(repos_id)
+    repos_name = get_repos(repos)[rp]["name"]
+    print(repos_name)
 
 
     def branch_exists(repos_id, branch_name):
