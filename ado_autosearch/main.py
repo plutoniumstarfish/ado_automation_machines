@@ -27,6 +27,8 @@ def get_repos():
         REPO_ID = repo["id"]
         return REPO_ID
 
+repo_id = get_repos()
+
 
 def branch_exists(repo_id, branch_name):
     url = f"https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repo_id}/refs"
@@ -40,12 +42,11 @@ def branch_exists(repo_id, branch_name):
 
     return len(r.json()["value"]) > 0
 
+exists = branch_exists(repo_id, "release/2026.1")
 
-    exists = branch_exists(get_repos, "release/2026.1")
+if exists:
+  print("Branch exists")
+else:
+  print("Branch does NOT exist")
 
-    if exists:
-      print("Branch exists")
-    else:
-      print("Branch does NOT exist")
-
-    
+ 
