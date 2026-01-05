@@ -17,7 +17,7 @@ print(f"Branch passed: {branch_name}")
 organization = "genex2anchetamax"
 project = "ado_automation_machines"
 
-PAT = "71A2OfaynYCTFRixetfS2N4kvFVJ08pnhOORDtouuqVgAEZgWIpaJQQJ99CAACAAAAAAAAAAAAASAZDO241I123"
+PAT = ""
 
 auth = HTTPBasicAuth("", PAT)
 headers = {
@@ -69,6 +69,7 @@ for rp in range(len(repos)):
 
     if exists:
         print("Branch exists")
+        print(repos_name)
     else:
         print("Branch does NOT exist")
  
